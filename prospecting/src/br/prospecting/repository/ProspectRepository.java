@@ -33,12 +33,10 @@ public interface ProspectRepository {
 	
 	
 	/**
-	 * Find a list of {@link Prospect} according to {@link ProspectSearchFields}. This should be sorted by registration date descending order.
+	 * Find a list of {@link Prospect} according to {@link ProspectSearchFields}. This should be sorted by registration date in descending order.
 	 * 
-	 * @param name The name to search for. If the name is void or null, it will return a list of {@link Prospect} regarding only the page and limit.
-	 * @param page The page number to offset. It must be greater than 1.
-	 * @param limit The max number of {@link Prospect} per page. It must be greater than 1.
-	 * @return
+	 * @param prospectSearchFields A {@link ProspectSearchFields} to configure the search. See {@link ProspectSearchFields}.
+	 * @return A list of ${@link Prospect}.
 	 */
 	public List<Prospect> list(ProspectSearchFields prospectSearchFields);
 	
