@@ -33,15 +33,14 @@ public interface ProspectRepository {
 	
 	
 	/**
-	 * Find a list of {@link Prospect} according to name, page and limit. This should be sorted by registration date descending order.
-	 * If the page is 2, and limit 10, it will show from 10 to 19 (returns 10 objects). If the page is 5 and limit is 10, it will show from 40 to 49 (returns 10 objects).
+	 * Find a list of {@link Prospect} according to {@link ProspectSearchFields}. This should be sorted by registration date descending order.
 	 * 
 	 * @param name The name to search for. If the name is void or null, it will return a list of {@link Prospect} regarding only the page and limit.
 	 * @param page The page number to offset. It must be greater than 1.
 	 * @param limit The max number of {@link Prospect} per page. It must be greater than 1.
 	 * @return
 	 */
-	public List<Prospect> list(String name, int page, int limit, int status);
+	public List<Prospect> list(ProspectSearchFields prospectSearchFields);
 	
 	/**
 	 * Remove a {@link Prospect} by id. Furthermore this should remove all its own dependencies, like {@NoteMessage} objects.
