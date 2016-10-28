@@ -1,6 +1,7 @@
 package br.prospecting.bal;
 
 import java.time.LocalDateTime;
+import br.prospecting.datetime.DateTimePatternedFormat;
 
 public class Prospect extends ModelBase {
 	
@@ -17,6 +18,10 @@ public class Prospect extends ModelBase {
 	private Origin origin;
 	private Sector sector;
 
+	
+	public String getRegistrationDateText() {
+		return this.registrationDate.format(DateTimePatternedFormat.get());
+	}
 
 	public String getName() {
 		return name;
