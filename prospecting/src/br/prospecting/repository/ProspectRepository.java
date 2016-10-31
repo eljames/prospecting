@@ -17,7 +17,7 @@ public interface ProspectRepository {
 	public void save(Prospect prospect);
 	
 	/**
-	 * Update a prospect.
+	 * Update a prospect. It must include the prospect id on {@link Prospect} object parameter.
 	 * 
 	 * @param prospect A {@link Prospect} object.
 	 */
@@ -36,7 +36,7 @@ public interface ProspectRepository {
 	 * Find a list of {@link Prospect} according to {@link ProspectSearchFields}. This should be sorted by registration date in descending order.
 	 * 
 	 * @param prospectSearchFields A {@link ProspectSearchFields} to configure the search. See {@link ProspectSearchFields}.
-	 * @return A list of ${@link Prospect}.
+	 * @return A list of {@link Prospect}.
 	 */
 	public List<Prospect> list(ProspectSearchFields prospectSearchFields);
 	
