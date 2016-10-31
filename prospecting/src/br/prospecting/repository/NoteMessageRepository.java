@@ -23,7 +23,7 @@ public interface NoteMessageRepository {
 	
 	
 	/**
-	 * Returns a note message list, with a specific page and limit per page.
+	 * Returns a note message list, with a specific page and limit per page. It should be sorted by post date in descending order.
 	 * 
 	 * @param page
 	 * @param limit
