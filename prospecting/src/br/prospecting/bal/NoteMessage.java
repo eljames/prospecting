@@ -2,7 +2,14 @@ package br.prospecting.bal;
 
 import java.time.LocalDateTime;
 
-public class NoteMessage extends ModelBase {
+/**
+ * A note message can be leave with a freely message to describe what happens with the prospect.
+ * Eg: "Return call and talk to John"
+ * Each note message has its own post date time. A post date show what time and date the message was added.
+ * @author Eli James
+ *
+ */
+public class NoteMessage extends BaseModel {
 	
 	private String message;
 	private LocalDateTime postDate;

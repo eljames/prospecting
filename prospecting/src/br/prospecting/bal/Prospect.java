@@ -3,7 +3,7 @@ package br.prospecting.bal;
 import java.time.LocalDateTime;
 import br.prospecting.datetime.DateTimePatternedFormat;
 
-public class Prospect extends ModelBase {
+public class Prospect extends BaseModel {
 	
 	// Can be the company name or a person name.
 	private String name;
