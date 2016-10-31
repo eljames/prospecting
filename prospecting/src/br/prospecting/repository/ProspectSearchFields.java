@@ -5,7 +5,7 @@ import br.prospecting.bal.Prospect;
 /**
  * Contains fields for searching {@link Prospect} objects according to name, page, limit and status. 
  * If the page is 2, and limit 10, it will show from 11 to 20 (returns 10 objects). If the page is 5 and limit is 10, it will show from 41 to 50 (returns 10 objects).
- * Furthermore, search prospects by name and status.  If the name is void or null, a {@link ProspectRepository} will return a list of {@link Prospect} with any name.
+ * Furthermore, it can search prospects by name and status.  If the name is void or null, a {@link ProspectRepository} will return a list of {@link Prospect} with any name.
  * If status is -1, it will return with any status.
  */
 

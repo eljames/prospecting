@@ -11,7 +11,7 @@ public class Prospect extends ModelBase {
 	// The prospect full address
 	private String address;
 	
-	// This is time when the prospect is added
+	// The time when the prospect is added
 	private LocalDateTime registrationDate;
 	
 	private int status;
