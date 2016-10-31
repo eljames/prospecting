@@ -1,6 +1,6 @@
 package br.prospecting.bal;
 
-public class Sector extends ModelBase {
+public class Sector extends BaseModel {
 	
 	private String name;
 
