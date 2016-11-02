@@ -36,15 +36,14 @@ public class OriginServiceImpl implements OriginService {
 
 	@Transactional
 	@Override
-	public void updateOrigin(long id) {
-		// TODO Auto-generated method stub
-		
+	public void updateOrigin(Origin origin) throws DBException {
+		originRep.update(origin);
 	}
 
+	@Transactional
 	@Override
-	public void removeOrigin(Origin origin) {
-		// TODO Auto-generated method stub
-		
+	public void removeOrigin(long id) throws DBException {
+		originRep.remove(id);
 	}
 	
 	

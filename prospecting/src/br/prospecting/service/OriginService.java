@@ -13,7 +13,7 @@ public interface OriginService {
 	
 	public List<Origin> listOrigins() throws DBException;
 	
-	public void updateOrigin(long id) throws DBException;
+	public void updateOrigin(Origin origin) throws DBException;
 	
-	public void removeOrigin(Origin origin) throws DBException;
+	public void removeOrigin(long id) throws DBException;
 }
