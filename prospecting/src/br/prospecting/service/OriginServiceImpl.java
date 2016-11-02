@@ -22,18 +22,19 @@ public class OriginServiceImpl implements OriginService {
 		originRep.save(origin);
 	}
 
+	@Transactional(readOnly = true)
 	@Override
-	public void getOrigin(long id) {
-		// TODO Auto-generated method stub
-		
+	public Origin getOrigin(long id) throws DBException {
+		return originRep.get(id);
 	}
 
+	@Transactional(readOnly = true)
 	@Override
-	public List<Origin> getOriginList() {
-		return null;
-		
+	public List<Origin> listOrigins() {
+		return originRep.list();
 	}
 
+	@Transactional
 	@Override
 	public void updateOrigin(long id) {
 		// TODO Auto-generated method stub

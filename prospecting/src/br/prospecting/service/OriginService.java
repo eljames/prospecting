@@ -9,9 +9,9 @@ public interface OriginService {
 	
 	public void saveOrigin(Origin origin) throws DBException;
 	
-	public void getOrigin(long id) throws DBException;
+	public Origin getOrigin(long id) throws DBException;
 	
-	public List<Origin> getOriginList() throws DBException;
+	public List<Origin> listOrigins() throws DBException;
 	
 	public void updateOrigin(long id) throws DBException;
 	
