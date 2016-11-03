@@ -5,6 +5,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.core.SqlReturnResultSet;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -19,15 +20,17 @@ import br.prospecting.repository.OriginRepository;
 @Repository
 public class OriginDAO implements OriginRepository {
 	
-	private SimpleJdbcCall simpleJdbcCall;
+	private JdbcTemplate jdbcTemplate;
 
 	@Autowired
 	public OriginDAO(DataSource dataSource) {
-		simpleJdbcCall = new SimpleJdbcCall(dataSource);
+		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
 	@Override
 	public void save(Origin origin) throws DBException {
+		
+		SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate);
 		
 		SqlParameterSource sqlParam = new MapSqlParameterSource()
 				.addValue("_name", origin.getName());
@@ -38,6 +41,8 @@ public class OriginDAO implements OriginRepository {
 	
 	@Override
 	public Origin get(long id) throws DBException {
+		
+		SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate);
 		
 		MapSqlParameterSource sqlParam = new MapSqlParameterSource()
 				.addValue("_id", id);
@@ -55,6 +60,8 @@ public class OriginDAO implements OriginRepository {
 	@Override
 	public void update(Origin origin) throws DBException {
 		
+		SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate);
+		
 		SqlParameterSource sqlParam = new MapSqlParameterSource()
 				.addValue("_id", origin.getId())
 				.addValue("_name", origin.getName());
@@ -65,6 +72,8 @@ public class OriginDAO implements OriginRepository {
 	@Override
 	public void remove(long id) throws DBException {
 		
+		SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate);
+		
 		MapSqlParameterSource sqlParam = new MapSqlParameterSource()
 				.addValue("_id", id);
 		
@@ -74,6 +83,8 @@ public class OriginDAO implements OriginRepository {
 	
 	@Override
 	public List<Origin> list() {
+		
+		SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate);
 		
 		simpleJdbcCall
 				.withProcedureName("usp_origin_list")
