@@ -18,7 +18,37 @@
 	
 	<!-- Allow mvc annotation driven -->
 	
-	<mvc:annotation-driven />
+	<mvc:annotation-driven>
+		
+		<!-- Gson Message Converter Configuration -->
+		<!-- Allow a POJO being converted to JSON automatically or vice versa -->
+		
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.json.GsonHttpMessageConverter">
+				<property name="gson">
+					<bean class="com.google.gson.Gson" factory-bean="gsonBuilder" factory-method="create" />
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+	
+	<!-- Bean to be used on Message Converter (Gson Framework) -->
+	
+	<bean id="gsonBuilder" class="com.google.gson.GsonBuilder" />
+	
+	<!-- This set up Gson Factory to register customized configurations (In this case, date time customization) -->
+	
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject" ref="gsonBuilder" />
+		<property name="targetMethod" value="registerTypeHierarchyAdapter" />
+		<property name="arguments">
+			<list>
+				<value type="java.lang.Class">java.time.LocalDateTime</value>
+				<ref bean="dateTimeGsonAdapter"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="dateTimeGsonAdapter" class="br.tools.DateTimeGsonAdapter" />
 	
 	<!-- Resources path configuration (images, css, js) -->
 	
