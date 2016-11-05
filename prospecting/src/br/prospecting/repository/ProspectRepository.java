@@ -8,7 +8,7 @@ import br.prospecting.bal.Prospect;
  * @author Eli James
  *
  */
-public interface ProspectRepository {
+public interface ProspectRepository extends GenericRepository<Prospect> {
 	
 	/**
 	 * Find a list of {@link Prospect} according to {@link ProspectSearchFields}. This should be sorted by registration date in descending order.
