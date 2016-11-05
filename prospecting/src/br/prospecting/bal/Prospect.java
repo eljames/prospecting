@@ -11,12 +11,15 @@ public class Prospect extends BaseModel {
 	// The prospect full address
 	private String address;
 	
+	// The phone number
+	private String phoneNumber;
+	
 	// The time when the prospect is added
 	private LocalDateTime registrationDate;
 	
 	private int status;
-	private Origin origin;
 	private Sector sector;
+	private Origin origin;
 
 	
 	public String getRegistrationDateText() {
@@ -80,5 +83,13 @@ public class Prospect extends BaseModel {
 
 	public void setSector(Sector sector) {
 		this.sector = sector;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 }
