@@ -65,7 +65,8 @@ public class ProspectAPI {
 	 * @throws DBException
 	 */
 	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
-	public void update(@RequestBody Prospect prospect) throws DBException {
+	public void update(@PathVariable("id") long id, @RequestBody Prospect prospect) throws DBException {
+		prospect.setId(id);
 		prospectService.updateProspect(prospect);
 	}
 	
